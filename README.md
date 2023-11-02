@@ -14,6 +14,7 @@ Nonfunctional requirements that are most likely to be present in production use 
 ## Instructions to use
 
 Install [docker](https://docs.docker.com/engine/install)
+
 clone the repository
 ```sh
 git clone https://github.com/eng-awais/github-search.git
