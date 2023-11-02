@@ -2,29 +2,9 @@ version: '3.7'
 
 # To access data postgres and redis writes within container from host machine
 volumes:
-  postgres_data: {}
-  redis_data: {}
   gem_cache: {}
 
 services:
-  postgres:
-    image: postgres:alpine
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
-  redis:
-    image: redis:alpine
-    restart: always
-    volumes:
-      - redis_data:/data
-    ports:
-      - "6379:6379"
-
   app:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
@@ -34,9 +14,6 @@ services:
       args:
         RAILS_ENV: ${RAILS_ENV:-development}
     image: github-search
-    depends_on:
-      - postgres
-      - redis
     environment:
       RAILS_ENV: ${RAILS_ENV:-development}
     ports:

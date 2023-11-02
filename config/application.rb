@@ -1,6 +1,15 @@
 require_relative "boot"
 require 'net/http'
-require "rails/all"
+require "rails"
+
+%w(
+  action_controller/railtie
+).each do |railtie|
+  begin
+    require railtie
+  rescue LoadError
+  end
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
