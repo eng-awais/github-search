@@ -27,6 +27,6 @@ Build and Run application
 ```sh
 docker-compose up
 ```
-Goto URL localhost:3000 in your preferred browser and use provided search bar to search for repositories. (Every Github repo search keyword is supported).
+Goto URL localhost:3000 in your preferred browser and use provided search bar to search for repositories. (Every Github repo search keyword is supported https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories).
 
 ![Test Image 1](public/github-search.jpeg)
