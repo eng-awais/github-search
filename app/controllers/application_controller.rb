@@ -1,6 +1,4 @@
-class ApplicationController < ActionController::API
-  respond_to :json
-
+class ApplicationController < ActionController::Base
   rescue_from ApiException, with: :render_api_exception
 
   private

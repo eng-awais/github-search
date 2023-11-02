@@ -20,7 +20,7 @@ class GithubApi
     uri = URI(API_URL)
     uri.query = URI.encode_www_form({ q: @query, sort: @sort, order: @order }.compact)
     response = Net::HTTP.get_response(uri)
-    raise ApiException.new(response.code, JSON.parse(response, symbolize_names: true)) if response.is_a?(Net::HTTPClientError)
-    JSON.parse(response, symbolize_names: true)
+    raise ApiException.new(response.code, JSON.parse(response.body, symbolize_names: true)) if response.is_a?(Net::HTTPClientError)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
