@@ -1,13 +1,13 @@
 class SearchesController < ApplicationController
-  def index
-    render json: GithubApi.call(searches_params[:query], sort: searches_params[:sort], order: searches_params[:order])
+  def show
+    render json: GithubApi.call(search_params[:query], sort: search_params[:sort], order: search_params[:order])
   rescue ArgumentError => e
     render json: { error: e.message }, status: :bad_request
   end
 
   private
 
-  def searches_params
+  def search_params
     params.permit(:query, :sort, :order)
   end
 end
